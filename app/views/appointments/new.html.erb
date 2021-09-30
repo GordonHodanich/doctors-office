@@ -1,0 +1,17 @@
+<h2>Create a new Appointment!</h2>
+
+<%= form_for @appointment do |form| %>
+  <label>Select Patient:</label>
+  <%= form.collection_select :patient_id, Patient.all, :id, :name %>
+  <br/>
+  <label>Select Doctor:</label>
+  <%= form.collection_select :doctor_id, Doctor.all, :id, :name %>
+  <br/>
+  <label>Select Date:</label>
+  <%= form.date_field :date %>
+  <br/>
+  <label>Notes:</label>
+  <%= form.text_area :notes %>
+  <br/>
+  <%= form.submit %>
+<% end %>
