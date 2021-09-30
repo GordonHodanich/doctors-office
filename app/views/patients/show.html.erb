@@ -1,0 +1,17 @@
+<h3><%= @patient.name %></h3>
+<% @patient.doctors.each do |doctor| %>
+<h3> <%= link_to doctor.name, doctor_path(doctor) %> </h3>
+
+<% doctor.appointments.where(patient: @patient).each do |appointment| %>
+
+<ul>
+ <li>
+ <%= appointment.date%>
+  <%= appointment.notes%>
+ </li>
+</ul>
+  <% end %>
+<% end %>
+
+
+
